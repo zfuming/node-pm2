@@ -9,9 +9,5 @@ EXPOSE 80 443 3000
 
 WORKDIR /app
 
-COPY docker-pm2-run /usr/local/bin/
-
-RUN chmod +x /usr/local/bin/docker-pm2-run
-
 # Start
-CMD ["docker-pm2-run"]
+CMD ["pm2-docker", "start", "--env", "production", "/app/pm2.json"]
